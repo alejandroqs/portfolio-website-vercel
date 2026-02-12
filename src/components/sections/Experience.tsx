@@ -54,6 +54,21 @@ export default function Experience() {
                         <p className="max-w-2xl text-muted-foreground leading-relaxed">
                             {job.description}
                         </p>
+
+                        {/* Highlights Section */}
+                        {job.highlights && (
+                            <ul className="mt-4 space-y-2 max-w-2xl">
+                                {job.highlights.map((highlight, i) => (
+                                    <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                                        <span className={cn(
+                                            "mt-1.5 h-1.5 w-1.5 min-w-[6px] rounded-full",
+                                            mode === "disruptor" ? "bg-neon-purple/70" : "bg-slate-400"
+                                        )} />
+                                        <span>{highlight}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </motion.div>
                 ))}
             </div>

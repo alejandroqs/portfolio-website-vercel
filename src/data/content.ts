@@ -10,6 +10,14 @@ export interface Project {
   highlight?: boolean;
 }
 
+export interface ExperienceItem {
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+  highlights: string[]; // Added highlights for bullet points
+}
+
 export interface Content {
   hero: {
     title: string;
@@ -32,12 +40,7 @@ export interface Content {
   };
   experience: {
     title: string;
-    items: {
-      company: string;
-      role: string;
-      period: string;
-      description: string;
-    }[];
+    items: ExperienceItem[];
   };
   footer: {
     contact: string;
@@ -55,7 +58,7 @@ export const content: Record<Mode, Content> = {
       ctaSecondary: "Download CV"
     },
     switch: {
-      label: "Corporate" // or "Business"
+      label: "Corporate"
     },
     projects: {
       title: "Featured Projects",
@@ -85,23 +88,50 @@ export const content: Record<Mode, Content> = {
     },
     skills: {
       title: "Technical Arsenal",
-      mobileWeb: { title: "Mobile & Web", items: ["Kotlin", "Flutter", "React", "Node.js", "AWS"] },
-      blockchain: { title: "Blockchain", items: ["Solidity", "Web3.js", "Hardhat", "IPFS"] }
+      mobileWeb: {
+        title: "Frontend & Mobile Ecosystem",
+        items: ["React", "TypeScript", "Kotlin", "Flutter", "Redux", "Clean Architecture", "TDD", "SSR"]
+      },
+      blockchain: {
+        title: "Backend & Cloud Ops",
+        items: ["Node.js", "AWS", "Docker", "GraphQL", "CI/CD", "PostgreSQL", "Firebase"]
+      }
     },
     experience: {
       title: "Professional Experience",
       items: [
         {
           company: "Duonion",
-          role: "Technical Leadership",
-          period: "2022-Present",
-          description: "Leading product development and technical strategy for scalable applications."
+          role: "Lead Frontend & Full Stack Engineer",
+          period: "2019 – 2025",
+          description: "Technical leadership and end-to-end development of digital solutions, acting as the principal architect for web and mobile platforms.",
+          highlights: [
+            "Designed and developed multiple Single Page Applications (SPAs) using React and TypeScript, improving code maintainability.",
+            "Led the engineering of digital products that scaled to over 100,000 users (flagship success: Oraculum).",
+            "Developed complex user interfaces for decentralized ecosystems, integrating Web3 authentication ensuring fluid UX.",
+            "Implemented asynchronous loading strategies significantly reducing initial load times."
+          ]
         },
         {
-          company: "Freelance / Consultant",
-          role: "Full Stack Developer",
-          period: "2018-2022",
-          description: "Delivering custom solutions for diverse international clients."
+          company: "Freelance Consultant",
+          role: "Full Stack Web Developer",
+          period: "2019 – 2022",
+          description: "Consultancy and development of bespoke web platforms, e-commerce solutions, and management systems for international clients.",
+          highlights: [
+            "Built and customized robust e-commerce platforms (Shopify, Magento) integrating headless solutions with React/Node.js.",
+            "Delivered 'Pixel Perfect' and fully responsive interface designs ensuring cross-browser compatibility.",
+            "Created and consumed secure RESTful APIs using Node.js and PHP for high-availability applications."
+          ]
+        },
+        {
+          company: "Innovation Centre (CICEI)",
+          role: "R&D Engineer (Data & Web Visualization)",
+          period: "2018 – 2019",
+          description: "Applied research in data visualization and real-time sentiment analysis.",
+          highlights: [
+            "Developed interactive dashboards for visualizing large datasets processed with Spark and Scala.",
+            "Applied machine learning techniques to predict trends from social media data."
+          ]
         }
       ]
     },
@@ -150,23 +180,50 @@ export const content: Record<Mode, Content> = {
     },
     skills: {
       title: "Cryptographic Primitives",
-      mobileWeb: { title: "Frontend IO", items: ["Kotlin", "Flutter", "React", "Node.js", "AWS"] },
-      blockchain: { title: "Core Protocol", items: ["Solidity", "Web3.js", "Hardhat", "IPFS"] }
+      mobileWeb: {
+        title: "DApp Interfaces & Mobile",
+        items: ["React", "Web3.js", "Ethers.js", "Flutter", "IPFS", "WalletConnect", "The Graph"]
+      },
+      blockchain: {
+        title: "Protocol Engineering",
+        items: ["Solidity", "Hardhat", "EVM", "OpenZeppelin", "Gas Optimization", "Slither", "Merkle Trees"]
+      }
     },
     experience: {
       title: "Execution History",
       items: [
         {
           company: "Duonion",
-          role: "Protocol Architect",
-          period: "2022-Present",
-          description: "Architecting decentralized solutions and secure protocol implementations."
+          role: "Blockchain Architect & Technical Co-Founder",
+          period: "2022 – 2025",
+          description: "Led the architectural design and technical strategy for Web3 solutions, bridging the gap between decentralized protocols and user-friendly mobile/web interfaces.",
+          highlights: [
+            "Designed secure server architectures integrating AWS Lambda with Ethereum-based smart contracts.",
+            "Defined the technical roadmap for blockchain integration, focusing on scalability and security.",
+            "Oversaw the full-stack development of DApps, ensuring seamless wallet connectivity."
+          ]
         },
         {
-          company: "Freelance / Consultant",
-          role: "Smart Contract Engineer",
-          period: "2018-2022",
-          description: "Deploying autonomous smart contracts for DAO infrastructure."
+          company: "Confidential NFT Project",
+          role: "Lead Smart Contract Developer",
+          period: "2020 – 2023",
+          description: "Engineered and deployed a high-performance NFT collection, handling the entire lifecycle from Smart Contract creation to minting DApp.",
+          highlights: [
+            "Wrote and optimized Solidity contracts, implementing advanced features like presale whitelisting (Merkle Trees).",
+            "Conducted rigorous internal auditing to prevent common vulnerabilities (Reentrancy, Overflow/Underflow).",
+            "Built the minting DApp using Web3.js for real-time supply tracking."
+          ]
+        },
+        {
+          company: "Independent Consultant",
+          role: "Senior Mobile & Software Engineer",
+          period: "2019 – Present",
+          description: "Delivering high-reliability software solutions. Demonstrated ability to build products that achieve mass adoption.",
+          highlights: [
+            "Engineered Oraculum (Android), achieving 100,000+ downloads and a 4.7-star rating.",
+            "Implemented secure payment gateways and GDPR-compliant data handling transferable to DeFi security.",
+            "Developed Numerology (Flutter), optimizing performance and user engagement through advanced analytics."
+          ]
         }
       ]
     },
