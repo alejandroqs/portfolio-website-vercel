@@ -18,8 +18,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Engineering Switch | Full Stack & Web3 Portfolio",
-  description: "A dual-mode portfolio showcasing expertise in Scalable Web2 Architectures and Secure Web3 Protocols.",
+  title: "Alejandro Quesada | Full Stack & Web3 Portfolio",
+  description: "Senior Full Stack Engineer & Blockchain Architect",
 };
 
 export default function RootLayout({

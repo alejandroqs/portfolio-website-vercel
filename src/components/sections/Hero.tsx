@@ -53,7 +53,7 @@ export default function Hero() {
     }, [mode]);
 
     return (
-        <section className={cn(
+        <section id="hero" className={cn(
             "relative flex min-h-[90vh] flex-col justify-center px-6 lg:px-20 max-w-7xl mx-auto pt-24", // Added padding-top for header
             mode === "corporate" ? "text-slate-900" : "text-slate-100"
         )}>
@@ -78,7 +78,7 @@ export default function Hero() {
                             ? "bg-white text-slate-800 border-slate-200 shadow-sm"
                             : "bg-slate-900 text-neon-purple border-neon-purple/50 shadow-[0_0_10px_rgba(168,85,247,0.3)]"
                     )}>
-                        {mode === 'corporate' ? '● Available for Hire' : '● Protocol Status: Secure'}
+                        {mode === 'corporate' ? '● Available for Hire' : '● Protocol Status: Available'}
                     </span>
 
                     {/* Main Title - Removed clip-text for now to ensure visibility */}
@@ -137,11 +137,15 @@ export default function Hero() {
                         <ArrowRight className="ml-2 w-5 h-5" />
                     </motion.button>
 
-                    <motion.button
+                    <motion.a
+                        href={mode === "corporate" ? "/cv/alejandro_quesada_cv_corp.pdf" : "/cv/alejandro_quesada_cv_web3.pdf"}
+                        download={mode === "corporate" ? "Alejandro_Quesada_FullStack_CV.pdf" : "Alejandro_Quesada_Web3_Architect_CV.pdf"}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         className={cn(
-                            "h-14 px-8 rounded-full font-bold text-lg flex items-center justify-center border-2 transition-all",
+                            "h-14 px-8 rounded-full font-bold text-lg flex items-center justify-center border-2 transition-all cursor-pointer",
                             mode === "corporate"
                                 ? "border-slate-300 text-slate-700 bg-white hover:border-slate-400 hover:bg-slate-50"
                                 : "border-slate-700 text-slate-300 bg-transparent hover:border-neon-purple hover:text-neon-purple"
@@ -149,7 +153,7 @@ export default function Hero() {
                     >
                         {data.hero.ctaSecondary}
                         <Download className="ml-2 w-5 h-5" />
-                    </motion.button>
+                    </motion.a>
                 </motion.div>
 
                 {/* Bottom Tagline */}

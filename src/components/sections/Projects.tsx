@@ -66,7 +66,7 @@ export default function Projects() {
                                 opacity: { duration: 0.2 }
                             }}
                             className={cn(
-                                "group relative flex flex-col justify-between overflow-hidden rounded-2xl border p-8 shadow-sm transition-all duration-300 h-[420px]",
+                                "group relative flex flex-col justify-between overflow-hidden rounded-2xl border p-8 shadow-sm transition-all duration-300 min-h-[460px] h-full",
                                 mode === "disruptor"
                                     ? "bg-slate-900/40 border-slate-800 hover:border-neon-purple/60 hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.15)] backdrop-blur-md"
                                     : "bg-white border-slate-200 hover:border-slate-300 hover:shadow-xl hover:-translate-y-1",
@@ -136,14 +136,14 @@ export default function Projects() {
 
                             {/* Metrics Footer */}
                             <div className={cn(
-                                "mt-6 pt-6 border-t flex justify-between items-center text-xs font-mono font-medium",
+                                "mt-6 pt-6 border-t text-xs font-mono font-medium",
                                 mode === "disruptor" ? "border-slate-800 text-slate-500" : "border-slate-100 text-slate-400"
                             )}>
-                                <div className="flex gap-4">
+                                <div className="grid grid-cols-2 gap-2">
                                     {project.metrics.map((m, i) => (
-                                        <span key={i} className="flex items-center gap-1.5 uppercase tracking-wider">
-                                            <Code2 size={12} className={mode === "disruptor" ? "text-neon-purple" : "text-slate-900"} />
-                                            {m}
+                                        <span key={i} className="flex items-start gap-1.5 uppercase tracking-wider">
+                                            <Code2 size={14} className={cn("shrink-0 mt-0.5", mode === "disruptor" ? "text-neon-purple" : "text-slate-900")} />
+                                            <span className="leading-tight">{m}</span>
                                         </span>
                                     ))}
                                 </div>

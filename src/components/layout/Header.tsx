@@ -22,16 +22,18 @@ export default function Header() {
             <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
                 {/* Logo / Brand */}
                 <div className="flex items-center gap-2">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-lg transition-colors ${mode === "corporate"
-                        ? "bg-slate-900 text-white"
-                        : "bg-neon-purple text-white shadow-[0_0_10px_rgba(168,85,247,0.5)]"
-                        }`}>
-                        {mode === "corporate" ? "E" : "Ξ"}
-                    </div>
-                    <span className={`font-bold tracking-tight text-lg hidden sm:block ${mode === "disruptor" && "text-neon-purple text-glow font-mono"
-                        }`}>
-                        Engineering Switch
-                    </span>
+                    <a href="#hero" className="flex items-center gap-2 group">
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-lg transition-colors ${mode === "corporate"
+                            ? "bg-slate-900 text-white"
+                            : "bg-neon-purple text-white shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+                            }`}>
+                            {mode === "corporate" ? "A" : "Λ"}
+                        </div>
+                        <span className={`font-bold tracking-tight text-lg hidden sm:block group-hover:opacity-80 transition-opacity ${mode === "disruptor" && "text-neon-purple text-glow font-mono"
+                            }`}>
+                            Alejandro Quesada
+                        </span>
+                    </a>
                 </div>
 
                 {/* Navigation & Toggle */}
