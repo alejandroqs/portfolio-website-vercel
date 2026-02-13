@@ -123,11 +123,12 @@ export default function Hero() {
                     layout
                     className="flex flex-col sm:flex-row gap-4"
                 >
-                    <motion.button
+                    <motion.a
+                        href="#projects"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         className={cn(
-                            "h-14 px-8 rounded-full font-bold text-lg flex items-center justify-center transition-all shadow-md hover:shadow-lg",
+                            "h-14 px-8 rounded-full font-bold text-lg flex items-center justify-center transition-all shadow-md hover:shadow-lg cursor-pointer",
                             mode === "corporate"
                                 ? "bg-slate-900 text-white hover:bg-slate-800"
                                 : "bg-neon-purple text-white shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]"
@@ -135,7 +136,7 @@ export default function Hero() {
                     >
                         {data.hero.ctaPrimary}
                         <ArrowRight className="ml-2 w-5 h-5" />
-                    </motion.button>
+                    </motion.a>
 
                     <motion.a
                         href={mode === "corporate" ? "/cv/alejandro_quesada_cv_corp.pdf" : "/cv/alejandro_quesada_cv_web3.pdf"}
