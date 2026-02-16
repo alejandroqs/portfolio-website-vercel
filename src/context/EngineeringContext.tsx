@@ -12,8 +12,31 @@ interface EngineeringContextType {
 
 const EngineeringContext = createContext<EngineeringContextType | undefined>(undefined);
 
+import { useSearchParams } from "next/navigation";
+
 export const EngineeringProvider = ({ children }: { children: ReactNode }) => {
+    const searchParams = useSearchParams();
+    // Default to corporate, but check URL immediately if possible (though useEffect handles it safer for hydration)
     const [mode, setMode] = useState<Mode>("corporate");
+
+    // Handle initial URL param
+    useEffect(() => {
+        const modeParam = searchParams.get("mode");
+        if (modeParam === "corp") {
+            setMode("corporate");
+        } else if (modeParam === "web3") {
+            setMode("disruptor");
+        }
+    }, [searchParams]);
+
+    useEffect(() => {
+        // Enable smooth transitions only after initial load to prevent flash
+        const timer = setTimeout(() => {
+            document.body.classList.add("transition-colors", "duration-500");
+        }, 100);
+
+        return () => clearTimeout(timer);
+    }, []);
 
     useEffect(() => {
         // Update data-theme attribute on body for global CSS variables
